@@ -1,0 +1,7 @@
+# Force HTTPS - works on Netlify and Vercel
+https://:project.netlify.app/* https://buckleson.com/:splat 301!
+http://buckleson.com/* https://buckleson.com/:splat 301!
+https://www.buckleson.com/* https://buckleson.com/:splat 301!
+
+# Redirect trailing slashes (optional)
+# /(.+)/$ /$1 301

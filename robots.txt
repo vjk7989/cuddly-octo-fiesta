@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
 Sitemap: https://buckleson.com/sitemap.xml
+
+# Allow search engines to crawl
+Crawl-delay: 0
+
+# Block access to private or admin areas if they exist
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /.github/

@@ -1,0 +1,40 @@
+# Netlify configuration for HTTPS enforcement and SEO optimization
+
+# Redirect HTTP to HTTPS
+[[redirects]]
+from = "http://:splat"
+to = "https://:splat"
+status = 301
+force = true
+
+# Remove www prefix
+[[redirects]]
+from = "https://www.:domain/*"
+to = "https://:domain/:splat"
+status = 301
+force = true
+
+# Cache headers for optimal performance
+[[headers]]
+for = "/*"
+[headers.values]
+  Cache-Control = "public, max-age=3600"
+  X-Content-Type-Options = "nosniff"
+  X-Frame-Options = "SAMEORIGIN"
+  X-XSS-Protection = "1; mode=block"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+for = "/*.css"
+[headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*.js"
+[headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/images/*"
+[headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
